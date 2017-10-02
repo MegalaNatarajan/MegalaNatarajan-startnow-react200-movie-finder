@@ -9,13 +9,13 @@ export const types = {
     return {
       type: types.INPUT_FIND,
       payload: { description },
-      completed: false
+      
     };
   }
   export function ClickGo (description) {
-    //const req = axios.get('http://www.omdbapi.com/?apikey=8730e0e&t='+description)
-    const req = axios.get('http://www.omdbapi.com/?apikey=8730e0e&i=tt3896198')
-    //const req = axios.get('http://www.omdbapi.com/?apikey=8730e0e&t=Guardians')
+    const req = axios.get('http://www.omdbapi.com/?apikey=8730e0e&t='+description)
+    //const req = axios.get('http://www.omdbapi.com/?apikey=8730e0e&i=tt3896198')
+    //const req = axios.get('http://www.omdbapi.com/?s='+description+'&apikey=8730e0e')
     .then(response =>  {
         console.log(response.data)
         return response.data;

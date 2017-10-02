@@ -9,10 +9,11 @@ export default function SearchReducer (state = defaultState, action) {
   const { type, payload } = action;
   switch (type) {
     case types.INPUT_FIND: {
+      console.log(state)
       return {
-        //...state,
+        ...state,
         //description:payload.description
-        description:payload.description
+        description: payload.description
         //payload.description
         
       }
@@ -20,7 +21,7 @@ export default function SearchReducer (state = defaultState, action) {
     }
     case `${types.CLICK_GO}_FULFILLED`: {
       const { description } = action.payload;
-      const { Title,Released,Plot,Poster } = action.payload;
+      const { Title,Released,Plot,Poster,imdbID } = action.payload;
       
       return {
         description: '',
@@ -28,14 +29,10 @@ export default function SearchReducer (state = defaultState, action) {
         lineItems: [
             ...state.lineItems,
             // plus a new object
-           { Title,Released,Plot,Poster },
+           { Title,Released,Plot,Poster,imdbID },
            
         ],
-        text:[
-          ...state.text,
-          {description}
-        ]
-        };
+      };
       
     }
    

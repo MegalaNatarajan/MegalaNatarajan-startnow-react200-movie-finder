@@ -65,8 +65,10 @@ class MovieSearchContainer extends React.Component {
                     <div style={{margin:'10px'}}>  {lineItem.Released}</div>
                      <div style={{margin:'10px'}}> {lineItem.Plot}</div>
                     
-                    <Link to="/movie/tt3896198">
-          <button id="moreInfo" style={{margin:'10px'}} className="btn btn-info">More Information</button></Link>
+                    <Link to={"/movie/"+lineItem.imdbID}>
+          <button id="moreInfo" style={{margin:'10px'}} className="btn btn-info">
+            More Information</button>
+            </Link>
                 
                  </div>
                  </div>
