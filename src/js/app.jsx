@@ -11,17 +11,17 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-        movies: []
+        movies: ''
     }
   }
   componentWillMount() {
     //const url = "http://www.omdbapi.com/";
     //var config = { proxy: { host: '127.0.0.1', port: 3000 } }
 
-    //axios.get("http://www.omdbapi.com/?apikey=8730e0e&i=tt3896198")
-    axios.get("http://www.omdbapi.com/")
+    axios.get("http://www.omdbapi.com/?apikey=8730e0e&i=tt3896198")
+    //axios.get("http://www.omdbapi.com/")
     .then(response => {
-        response.data;})
+        return response.data;})
     .then(movies => this.setState({ movies }))
     .catch(error => {console.log(error)})
    
