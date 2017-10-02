@@ -13,9 +13,9 @@ export const types = {
     };
   }
   export function ClickGo (description) {
-    const req = axios.get('http://www.omdbapi.com/?apikey=8730e0e&t='+description)
+    //const req = axios.get('http://www.omdbapi.com/?apikey=8730e0e&t='+description)
     //const req = axios.get('http://www.omdbapi.com/?apikey=8730e0e&i=tt3896198')
-    //const req = axios.get('http://www.omdbapi.com/?s='+description+'&apikey=8730e0e')
+    const req = axios.get('http://www.omdbapi.com/?s='+description+'&apikey=8730e0e')
     .then(response =>  {
         console.log(response.data)
         return response.data;

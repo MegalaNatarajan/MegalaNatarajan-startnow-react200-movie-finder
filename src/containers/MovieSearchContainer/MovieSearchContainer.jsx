@@ -18,8 +18,6 @@ class MovieSearchContainer extends React.Component {
     dispatch(InputFind(value));
   }
     handleClickGo(event) {
-      // dispatch was provided by connect()
-      //document.getElementById('moreInfo').style.display = "block";
       const { description, dispatch } = this.props;
       dispatch(ClickGo(description));
     }
@@ -45,27 +43,35 @@ class MovieSearchContainer extends React.Component {
                  {
                   lineItems.map(lineItem => (
                   <div>
-                    <img src={lineItem.Poster} style={{width:'250px',height:'250px'}}/>
+                    {
+                    lineItem.Search.map(item =>(
+                      <div>
+                    <img src={item.Poster} style={{width:'250px',height:'250px'}}/>
+                    </div>
+                    ))}
                   </div>
                 ))}    
         </div>
       
         {
-                  lineItems.map(lineItem => (
-        <div className="col-sm-6">
+            lineItems.map(lineItem => (
+             <div>
+               {
+               lineItem.Search.map(item => (
+                <div className="col-sm-6">
           
                 <div className='card border-info mb-3'>
                 
-                  <div className='card-header text-white bg-info'>
+                  <div className='card-header text-white bg-info' style={{height:'30px',padding:'5px'}}>
                     <h4>Movie Information</h4>
                   </div>
                  <div className='card-body' style={{backgroundColor:"white"}}>
                  
-                    <div style={{margin:'10px',fontWeight:'bold'}}>  {lineItem.Title}</div>
-                    <div style={{margin:'10px'}}>  {lineItem.Released}</div>
-                     <div style={{margin:'10px'}}> {lineItem.Plot}</div>
+                    <div style={{margin:'10px',fontWeight:'bold'}}>  {item.Title}</div>
+                    <div style={{margin:'10px'}}>  {item.Year}</div>
+                     
                     
-                    <Link to={"/movie/"+lineItem.imdbID}>
+                    <Link to={"/movie/"+item.imdbID}>
           <button id="moreInfo" style={{margin:'10px'}} className="btn btn-info">
             More Information</button>
             </Link>
@@ -73,6 +79,8 @@ class MovieSearchContainer extends React.Component {
                  </div>
                  </div>
                 </div>
+               ))} 
+              </div>
               ))
                  }
           </div>
